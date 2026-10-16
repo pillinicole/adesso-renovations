@@ -131,19 +131,30 @@ body::before {
   vertical-align: -0.08em; margin-left: .15em;
 }
 
-.nav { display: flex; align-items: center; gap: 2.25rem; }
+.bar { justify-content: flex-start; }
+.nav { display: flex; align-items: center; gap: 2.25rem; margin-left: auto; }
+.tools { display: flex; align-items: center; gap: 1.25rem; margin-left: 2rem; }
+.lang-toggle { display: flex; align-items: center; gap: .45rem; color: var(--on-dark); font: 500 1.02rem var(--font-body); letter-spacing: .1em; }
+.lang-toggle button {
+  background: none; border: 0; border-bottom: 2px solid transparent; padding: .2rem .1rem;
+  font: inherit; letter-spacing: inherit; color: inherit; opacity: .55; cursor: pointer;
+}
+.lang-toggle button:hover { opacity: 1; }
+.lang-toggle button[aria-pressed="true"] { opacity: 1; color: var(--accent); border-bottom-color: var(--accent); }
+.lang-toggle .sep { opacity: .4; }
 .nav ul { display: flex; gap: 2.25rem; list-style: none; margin: 0; padding: 0; }
-.nav a:not(.btn), .lang-switch {
+.nav a:not(.btn) {
   color: var(--on-dark); text-decoration: none; font: 500 1.02rem var(--font-body); letter-spacing: .1em;
   padding: .2rem 0; border: 0; border-bottom: 2px solid transparent; background: none; cursor: pointer;
 }
-.nav a:not(.btn):hover, .nav a[aria-current], .lang-switch:hover { border-bottom-color: var(--on-dark); }
+.nav a:not(.btn):hover, .nav a[aria-current] { border-bottom-color: var(--on-dark); }
 .menu-btn {
   display: none; background: none; border: 2px solid rgba(216, 210, 199, .6); color: var(--on-dark);
   border-radius: 3px; font-size: 1.4rem; line-height: 1; padding: .35rem .6rem; cursor: pointer;
 }
 @media (max-width: 1060px) {
   .menu-btn { display: inline-block; }
+  .tools { margin-left: auto; }
   .nav {
     display: none; position: absolute; top: 100%; left: 0; right: 0;
     flex-direction: column; align-items: flex-start; gap: 1.4rem;
@@ -156,6 +167,8 @@ body::before {
   :root { --hdr: 84px; }
   .logo img { height: 40px; }
   .definition { font-size: .72rem; }
+  .tools { gap: .9rem; }
+  .lang-toggle { font-size: .92rem; }
   .topbar { font-size: .85rem; }
 }
 
@@ -315,7 +328,6 @@ textarea { min-height: 140px; resize: vertical; }
         <span data-l="fr"><b>adesso</b> /aˈdɛsso/ <i>italien, adv.</i> <strong class="def-word">maintenant</strong></span>
       </span>
     </a>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Menu">☰</button>
     <nav class="nav" id="main-nav" aria-label="Main">
       <ul>
         <li><a href="#top" aria-current="page"><span data-l="en">Home</span><span data-l="fr">Accueil</span></a></li>
@@ -323,10 +335,17 @@ textarea { min-height: 140px; resize: vertical; }
         <li><a href="#services"><span data-l="en">Services</span><span data-l="fr">Services</span></a></li>
         <li><a href="#contact"><span data-l="en">Contact</span><span data-l="fr">Contact</span></a></li>
       </ul>
-      <!-- Shows the language you can switch TO -->
-      <button class="lang-switch" type="button"><span data-l="en" lang="fr">FR</span><span data-l="fr" lang="en">EN</span></button>
       <a class="btn" href="#contact"><span data-l="en">Get a Quote</span><span data-l="fr">Soumission</span></a>
     </nav>
+    <!-- Language toggle + mobile menu button: always visible -->
+    <div class="tools">
+      <div class="lang-toggle" role="group" aria-label="Language / Langue">
+        <button type="button" data-set-lang="en" lang="en" aria-pressed="true">EN</button>
+        <span class="sep" aria-hidden="true">|</span>
+        <button type="button" data-set-lang="fr" lang="fr" aria-pressed="false">FR</button>
+      </div>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Menu">☰</button>
+    </div>
   </div>
 </header>
 
@@ -569,7 +588,7 @@ textarea { min-height: 140px; resize: vertical; }
   var root = document.documentElement;
 
   /* ---------- Language ---------- */
-  var langSwitch = document.querySelector(".lang-switch");
+  var langButtons = document.querySelectorAll("[data-set-lang]");
   function setLang(lang) {
     root.lang = lang;
     document.querySelectorAll("title[data-" + lang + "], option[data-" + lang + "]").forEach(function (el) {
@@ -583,10 +602,10 @@ textarea { min-height: 140px; resize: vertical; }
     });
     var formLang = document.getElementById("form-lang");
     if (formLang) formLang.value = lang;
-    langSwitch.setAttribute("aria-label", lang === "en" ? "Passer au français" : "Switch to English");
+    langButtons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.setLang === lang)); });
     try { localStorage.setItem("adesso-lang", lang); } catch (e) {}
   }
-  langSwitch.addEventListener("click", function () { setLang(root.lang === "fr" ? "en" : "fr"); });
+  langButtons.forEach(function (b) { b.addEventListener("click", function () { setLang(b.dataset.setLang); }); });
   var saved = null;
   try { saved = localStorage.getItem("adesso-lang"); } catch (e) {}
   var browserFr = (navigator.language || "").toLowerCase().indexOf("fr") === 0;
