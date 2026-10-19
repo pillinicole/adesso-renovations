@@ -81,6 +81,7 @@ h3 { font-family: var(--font-heading); font-size: 1.55rem; font-weight: 700; tex
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 p { margin: 0; }
 section { padding: clamp(4rem, 9vw, 7rem) 0; }
+.note { margin-top: .9rem; font-size: 1rem; color: var(--muted); max-width: 70ch; }
 .lede { color: var(--muted); max-width: 56ch; margin-top: 1rem; font-size: 1.15rem; }
 
 /* Buttons */
@@ -391,30 +392,26 @@ textarea { min-height: 140px; resize: vertical; }
   <section id="services">
     <div class="wrap">
       <h2><span data-l="en">What we do</span><span data-l="fr">Nos services</span></h2>
-      <p class="lede">
-        <span data-l="en">Add, remove, or rename these to match the jobs you want more of.</span>
-        <span data-l="fr">Ajoutez, retirez ou renommez ces services selon les travaux que vous souhaitez faire.</span>
+      <p class="note">
+        <span data-l="en">Plumbing and electrical contracting is included. We will always pull permits and manage inspections.</span>
+        <span data-l="fr">Les travaux de plomberie et d’électricité sont inclus. Nous obtenons toujours les permis et gérons les inspections.</span>
       </p>
       <div class="services-list">
         <div class="service">
           <h3><span data-l="en">Kitchen remodels</span><span data-l="fr">Rénovation de cuisine</span></h3>
-          <p><span data-l="en">Layout changes, cabinets, countertops, tile, and lighting. We handle the plumbing and electrical subs so you don't have to.</span><span data-l="fr">Nouvel aménagement, armoires, comptoirs, céramique et éclairage. Nous coordonnons la plomberie et l’électricité pour vous.</span></p>
+          <p><span data-l="en">Layout changes, cabinets, countertops, tile, and lighting.</span><span data-l="fr">Nouvel aménagement, armoires, comptoirs, céramique et éclairage.</span></p>
         </div>
         <div class="service">
           <h3><span data-l="en">Bathroom remodels</span><span data-l="fr">Rénovation de salle de bain</span></h3>
-          <p><span data-l="en">From a simple refresh to a full gut and rebuild, including walk-in showers and accessibility upgrades.</span><span data-l="fr">D’une simple mise à jour à une rénovation complète, incluant douches à l’italienne et adaptations pour l’accessibilité.</span></p>
+          <p><span data-l="en">From a simple refresh to a full remodel: flooring, cabinetry, vanities, tiling, and more.</span><span data-l="fr">D’une simple mise à jour à une rénovation complète : planchers, armoires, vanités, céramique et plus encore.</span></p>
         </div>
         <div class="service">
-          <h3><span data-l="en">Additions &amp; renovations</span><span data-l="fr">Agrandissements et rénovations</span></h3>
-          <p><span data-l="en">Extra bedrooms, sunrooms, finished basements, and open floor plans. We pull permits and manage inspections.</span><span data-l="fr">Chambres supplémentaires, verrières, sous-sols aménagés et aires ouvertes. Nous obtenons les permis et gérons les inspections.</span></p>
+          <h3><span data-l="en">Renovations and additions</span><span data-l="fr">Rénovations et agrandissements</span></h3>
+          <p><span data-l="en">Includes finished basements, common area renos, or expansions.</span><span data-l="fr">Comprend l’aménagement de sous-sols, la rénovation des pièces communes ou des agrandissements.</span></p>
         </div>
         <div class="service">
-          <h3><span data-l="en">Decks &amp; exteriors</span><span data-l="fr">Terrasses et extérieurs</span></h3>
-          <p><span data-l="en">New decks, porches, siding, windows, and doors built to handle the local weather.</span><span data-l="fr">Terrasses, galeries, revêtement extérieur, fenêtres et portes conçus pour résister à notre climat.</span></p>
-        </div>
-        <div class="service">
-          <h3><span data-l="en">Repairs &amp; small jobs</span><span data-l="fr">Réparations et petits travaux</span></h3>
-          <p><span data-l="en">Drywall, framing, water damage, and the punch-list items that keep getting pushed back.</span><span data-l="fr">Gypse, charpente, dégâts d’eau et toutes ces petites tâches qu’on remet toujours à plus tard.</span></p>
+          <h3><span data-l="en">Repairs, small jobs, and design elements</span><span data-l="fr">Réparations, petits travaux et éléments de design</span></h3>
+          <p><span data-l="en">Drywall, framing, baseboards, patch-ups, repairs, or design and storage installations.</span><span data-l="fr">Gypse, charpente, plinthes, retouches, réparations ou installations de design et de rangement.</span></p>
         </div>
       </div>
     </div>
@@ -443,30 +440,6 @@ textarea { min-height: 140px; resize: vertical; }
           <figcaption><strong><span data-l="en">Under-slab plumbing</span><span data-l="fr">Plomberie sous la dalle</span></strong> — <span data-l="en">Town</span><span data-l="fr">Ville</span></figcaption>
         </figure>
       </div>
-    </div>
-  </section>
-
-  <section id="process">
-    <div class="wrap">
-      <h2><span data-l="en">How a project works</span><span data-l="fr">Déroulement d’un projet</span></h2>
-      <ol class="steps">
-        <li>
-          <h3><span data-l="en">Walkthrough</span><span data-l="fr">Visite</span></h3>
-          <p><span data-l="en">We visit, listen to what you want, and take measurements.</span><span data-l="fr">Nous vous rencontrons, écoutons vos besoins et prenons les mesures.</span></p>
-        </li>
-        <li>
-          <h3><span data-l="en">Written estimate</span><span data-l="fr">Soumission écrite</span></h3>
-          <p><span data-l="en">A clear, itemized price and timeline. No surprises later.</span><span data-l="fr">Un prix détaillé et un échéancier clair. Aucune mauvaise surprise.</span></p>
-        </li>
-        <li>
-          <h3><span data-l="en">Build</span><span data-l="fr">Travaux</span></h3>
-          <p><span data-l="en">We keep the site clean and send you updates as work moves along.</span><span data-l="fr">Nous gardons le chantier propre et vous tenons informé de l’avancement.</span></p>
-        </li>
-        <li>
-          <h3><span data-l="en">Final walkthrough</span><span data-l="fr">Inspection finale</span></h3>
-          <p><span data-l="en">We go over everything together and fix anything that isn't right.</span><span data-l="fr">Nous passons tout en revue ensemble et corrigeons ce qui doit l’être.</span></p>
-        </li>
-      </ol>
     </div>
   </section>
 
