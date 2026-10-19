@@ -81,7 +81,8 @@ h3 { font-family: var(--font-heading); font-size: 1.55rem; font-weight: 700; tex
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 p { margin: 0; }
 section { padding: clamp(4rem, 9vw, 7rem) 0; }
-.note { margin-top: .9rem; font-size: 1rem; color: var(--muted); max-width: none; }
+.note { margin-top: 1.5rem; font-size: 1rem; font-style: italic; color: var(--muted); max-width: none; }
+.note .star { color: var(--accent-dark); font-style: normal; font-weight: 700; margin-right: .3em; }
 .lede { color: var(--muted); max-width: 56ch; margin-top: 1rem; font-size: 1.15rem; }
 
 /* Buttons */
@@ -392,10 +393,6 @@ textarea { min-height: 140px; resize: vertical; }
   <section id="services">
     <div class="wrap">
       <h2><span data-l="en">What we do</span><span data-l="fr">Nos services</span></h2>
-      <p class="note">
-        <span data-l="en">Plumbing and electrical contracting is included. We will always pull permits and manage inspections.</span>
-        <span data-l="fr">Les travaux de plomberie et d’électricité sont inclus. Nous obtenons toujours les permis et gérons les inspections.</span>
-      </p>
       <div class="services-list">
         <div class="service">
           <h3><span data-l="en">Kitchen remodels</span><span data-l="fr">Rénovation de cuisine</span></h3>
@@ -414,6 +411,10 @@ textarea { min-height: 140px; resize: vertical; }
           <p><span data-l="en">Drywall, framing, baseboards, patch-ups, repairs, or design and storage installations.</span><span data-l="fr">Gypse, charpente, plinthes, retouches, réparations ou installations de design et de rangement.</span></p>
         </div>
       </div>
+      <p class="note"><span class="star" aria-hidden="true">*</span>
+        <span data-l="en">Plumbing and electrical contracting is included. We will always pull permits and manage inspections.</span>
+        <span data-l="fr">Les travaux de plomberie et d’électricité sont inclus. Nous obtenons toujours les permis et gérons les inspections.</span>
+      </p>
     </div>
   </section>
 
