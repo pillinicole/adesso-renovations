@@ -281,6 +281,9 @@ input, select, textarea {
 }
 textarea { min-height: 140px; resize: vertical; }
 .form-note { font-size: .9rem; color: var(--muted); }
+.form-note a { color: var(--ink); font-weight: 600; }
+.jobber-form { min-width: 0; }
+.jobber-form iframe { max-width: 100%; }
 @media (max-width: 820px) { .contact-grid, .row { grid-template-columns: 1fr; } }
 
 /* Footer */
@@ -527,38 +530,14 @@ textarea { min-height: 140px; resize: vertical; }
       </div>
 
       <!--
-        EDIT: To make this form email you, sign up for a free form service like
-        Formspree (formspree.io) and paste the URL they give you into action="".
+        JOBBER REQUEST FORM: requests go straight into Jobber.
+        (To make it bilingual later, create a French form in Jobber and send the code.)
       -->
-      <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
-        <input type="hidden" name="language" id="form-lang" value="en">
-        <div class="row">
-          <label><span><span data-l="en">Name</span><span data-l="fr">Nom</span></span><input type="text" name="name" autocomplete="name" required></label>
-          <label><span><span data-l="en">Phone</span><span data-l="fr">Téléphone</span></span><input type="tel" name="phone" autocomplete="tel" required></label>
-        </div>
-        <div class="row">
-          <label><span><span data-l="en">Email</span><span data-l="fr">Courriel</span></span><input type="email" name="email" autocomplete="email"></label>
-          <label><span><span data-l="en">Town</span><span data-l="fr">Ville</span></span><input type="text" name="town" autocomplete="address-level2"></label>
-        </div>
-        <label><span><span data-l="en">Type of project</span><span data-l="fr">Type de projet</span></span>
-          <select name="project_type">
-            <option value="kitchen" data-en="Kitchen remodel" data-fr="Rénovation de cuisine">Kitchen remodel</option>
-            <option value="bathroom" data-en="Bathroom remodel" data-fr="Rénovation de salle de bain">Bathroom remodel</option>
-            <option value="addition" data-en="Addition or renovation" data-fr="Agrandissement ou rénovation">Addition or renovation</option>
-            <option value="exterior" data-en="Deck or exterior" data-fr="Terrasse ou extérieur">Deck or exterior</option>
-            <option value="repair" data-en="Repair or small job" data-fr="Réparation ou petits travaux">Repair or small job</option>
-            <option value="other" data-en="Something else" data-fr="Autre">Something else</option>
-          </select>
-        </label>
-        <label><span><span data-l="en">Tell us about the project</span><span data-l="fr">Décrivez votre projet</span></span>
-          <textarea name="message"
-            data-en-placeholder="What you'd like done, rough timeline, anything else we should know"
-            data-fr-placeholder="Les travaux souhaités, l’échéancier approximatif, tout autre détail utile"
-            placeholder="What you'd like done, rough timeline, anything else we should know"></textarea>
-        </label>
-        <div><button class="btn" type="submit"><span data-l="en">Request my estimate</span><span data-l="fr">Demander ma soumission</span></button></div>
-        <p class="form-note"><span data-l="en">We'll never share your information.</span><span data-l="fr">Vos renseignements ne seront jamais partagés.</span></p>
-      </form>
+      <div class="jobber-form">
+        <div id="37c71c98-d256-4829-ba07-e20a0f56d25e-5291396"></div>
+        <link rel="stylesheet" href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css" media="screen" />
+        <script src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js" clienthub_id="37c71c98-d256-4829-ba07-e20a0f56d25e-5291396" form_url="https://clienthub.getjobber.com/client_hubs/37c71c98-d256-4829-ba07-e20a0f56d25e/public/work_request/embedded_work_request_form?form_id=5291396"></script>
+      </div>
     </div>
   </section>
 
