@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>document.documentElement.classList.add("js");</script>
 <!-- EDIT: page titles in both languages (the script at the bottom swaps them) -->
 <title data-en="Adesso Renovations | General Contractor" data-fr="Adesso Renovations | Entrepreneur général">Adesso Renovations | General Contractor</title>
 <meta name="description" content="Adesso Renovations — licensed and insured general contractor. Remodels, additions, and repairs. / Entrepreneur général licencié et assuré. Rénovations, agrandissements et réparations.">
@@ -201,6 +202,7 @@ body::before {
 }
 .tagline em { font-style: italic; color: var(--accent); }
 .tagline { margin-top: 1.25rem; font-family: var(--font-elegant); font-weight: 500; font-size: clamp(1.6rem, 3.6vw, 3rem); line-height: 1.15; }
+.slider-arrows[hidden] { display: none; }
 .slider-arrows { display: flex; gap: 1.25rem; margin-top: 3rem; }
 .slider-arrows button {
   width: 58px; height: 54px; display: grid; place-items: center; cursor: pointer;
@@ -308,6 +310,30 @@ textarea { min-height: 140px; resize: vertical; }
 /* Footer */
 .site-footer { background: var(--ink); color: color-mix(in srgb, var(--paper) 75%, transparent); padding: 2.5rem 0; font-size: .95rem; }
 .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+
+/* =========================================================
+   LOAD-IN ANIMATIONS (turned off for visitors who prefer reduced motion)
+   ========================================================= */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes rise   { from { opacity: 0; transform: translateY(28px); } }
+  @keyframes drop   { from { opacity: 0; transform: translateY(-12px); } }
+  @keyframes settle { from { transform: scale(1.08); } }
+
+  .topbar, .site-header { animation: drop .7s ease-out both; }
+  .slide.active { animation: settle 8s cubic-bezier(.2, .6, .2, 1) both; }
+  .hero-content > * { animation: rise 1s cubic-bezier(.2, .7, .2, 1) both; }
+  .hero-content > :nth-child(1) { animation-delay: .25s; }
+  .hero-content > :nth-child(2) { animation-delay: .5s; }
+  .hero-content > :nth-child(3) { animation-delay: .7s; }
+
+  /* Sections fade up as you scroll to them */
+  .js .reveal {
+    opacity: 0; transform: translateY(26px);
+    transition: opacity .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1);
+    transition-delay: var(--d, 0s);
+  }
+  .js .reveal.in { opacity: 1; transform: none; }
+}
 </style>
 </head>
 <body>
@@ -382,8 +408,7 @@ textarea { min-height: 140px; resize: vertical; }
       Add or remove slides freely. Wide, landscape photos work best.
     -->
     <div class="slides" aria-hidden="true">
-      <div class="slide active" style="background-image:url('images/hero-kitchen.jpg'); background-position: center 45%"></div>
-      <div class="slide" style="background-image:url('images/hero-framing.jpg'); background-position: center 60%"></div>
+      <div class="slide active" style="background-image:url('images/hero-framing.jpg'); background-position: center 60%"></div>
     </div>
 
     <div class="wrap hero-content">
@@ -433,24 +458,20 @@ textarea { min-height: 140px; resize: vertical; }
   <section id="projects" class="projects">
     <div class="wrap">
       <h2><span data-l="en">Recent projects</span><span data-l="fr">Projets récents</span></h2>
-      <p class="lede">
-        <span data-l="en">A few jobs we're proud of.</span>
-        <span data-l="fr">Quelques projets dont nous sommes fiers.</span>
-      </p>
       <div class="gallery">
         <!-- To add a project: copy a <figure>…</figure> block, change the photo and caption.
              The figure with class="feature" is the big one on the left. -->
         <figure class="feature">
           <div class="photo"><img src="images/kitchen.jpg" data-en-alt="Basement kitchen with white shaker cabinets and wide-plank floors" data-fr-alt="Cuisine au sous-sol avec armoires blanches de style shaker et plancher à larges lattes" alt="Basement kitchen with white shaker cabinets and wide-plank floors"></div>
-          <figcaption><strong><span data-l="en">Basement kitchen</span><span data-l="fr">Cuisine au sous-sol</span></strong> — <span data-l="en">Town</span><span data-l="fr">Ville</span></figcaption>
+          <figcaption><strong><span data-l="en">Basement Kitchen</span><span data-l="fr">Cuisine au sous-sol</span></strong> — Saint-Lazare</figcaption>
         </figure>
         <figure>
           <div class="photo"><img src="images/basement-framing.jpg" data-en-alt="Framing, insulation and plumbing rough-in in a basement" data-fr-alt="Charpente, isolation et plomberie brute dans un sous-sol" alt="Framing, insulation and plumbing rough-in in a basement" loading="lazy"></div>
-          <figcaption><strong><span data-l="en">Basement framing &amp; rough-in</span><span data-l="fr">Charpente et plomberie brute au sous-sol</span></strong> — <span data-l="en">Town</span><span data-l="fr">Ville</span></figcaption>
+          <figcaption><strong><span data-l="en">Basement Framing and Rough-In</span><span data-l="fr">Charpente et installations brutes au sous-sol</span></strong> — Saint-Lazare</figcaption>
         </figure>
         <figure>
           <div class="photo"><img src="images/under-slab-plumbing.jpg" data-en-alt="Concrete slab opened up to run new drain lines" data-fr-alt="Dalle de béton ouverte pour installer de nouveaux drains" alt="Concrete slab opened up to run new drain lines" loading="lazy"></div>
-          <figcaption><strong><span data-l="en">Under-slab plumbing</span><span data-l="fr">Plomberie sous la dalle</span></strong> — <span data-l="en">Town</span><span data-l="fr">Ville</span></figcaption>
+          <figcaption><strong><span data-l="en">Under-Slab Plumbing for Bathroom</span><span data-l="fr">Plomberie sous la dalle pour salle de bain</span></strong> — Saint-Lazare</figcaption>
         </figure>
       </div>
     </div>
@@ -594,9 +615,40 @@ textarea { min-height: 140px; resize: vertical; }
     clearInterval(timer);
     if (!reduceMotion && slides.length > 1) timer = setInterval(function () { show(current + 1); }, 6000);
   }
+  var arrows = document.querySelector(".slider-arrows");
+  if (slides.length < 2 && arrows) arrows.hidden = true;  // arrows come back automatically if you add more slides
   document.querySelector('[data-slide="prev"]').addEventListener("click", function () { show(current - 1); restart(); });
   document.querySelector('[data-slide="next"]').addEventListener("click", function () { show(current + 1); restart(); });
   restart();
+
+  /* ---------- Fade sections in as they scroll into view ---------- */
+  var groups = [
+    ["main section:not(.hero) h2", 0],
+    [".services-list .service", .08],
+    ["#services .note", 0],
+    [".gallery figure", .12],
+    [".about .photo, .about p", .08],
+    [".reviews-list .review", .14],
+    [".contact-grid > *", .14]
+  ];
+  var revealEls = [];
+  groups.forEach(function (g) {
+    document.querySelectorAll(g[0]).forEach(function (el, i) {
+      el.classList.add("reveal");
+      el.style.setProperty("--d", (i * g[1]).toFixed(2) + "s");
+      revealEls.push(el);
+    });
+  });
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add("in"); });
+  }
 })();
 </script>
 </body>
