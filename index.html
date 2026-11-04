@@ -6,7 +6,7 @@
 <script>document.documentElement.classList.add("js");</script>
 <!-- SEARCH & SHARING: page titles in both languages (the script at the bottom swaps them) -->
 <title data-en="Adesso Renovations | General Contractor in Saint-Lazare &amp; Vaudreuil" data-fr="Adesso Renovations | Entrepreneur général à Saint-Lazare et Vaudreuil">Adesso Renovations | General Contractor in Saint-Lazare &amp; Vaudreuil</title>
-<meta name="description" content="Kitchen and bathroom remodels, basement renovations and repairs in Saint-Lazare, Vaudreuil, Hudson, the West Island and Greater Montreal. Plumbing and electrical included. Rénovations de cuisines, salles de bain et sous-sols.">
+<meta name="description" content="Kitchen and bathroom remodels, basement renovations and repairs in Saint-Lazare, Vaudreuil, Hudson, the West Island and Greater Montreal. Rénovations de cuisines, salles de bain et sous-sols.">
 <link rel="canonical" href="https://adessoreno.ca/">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#292929">
@@ -42,10 +42,10 @@
     "https://adessoreno.ca/images/og-image.jpg",
     "https://adessoreno.ca/images/kitchen.jpg"
   ],
-  "telephone": "+1-514-945-1880",
+  "telephone": "+1-514-647-9992",
   "email": "info@adessoreno.ca",
   "slogan": "Votre projet, adesso!",
-  "description": "General contractor for kitchen and bathroom remodels, basement renovations, additions, repairs and design installations. Plumbing and electrical included; permits and inspections managed.",
+  "description": "General contractor for kitchen and bathroom remodels, basement renovations, additions, repairs and design installations. Plumbing and electrical through trusted partners.",
   "founder": {
     "@type": "Person",
     "name": "Sebastian Adeluca"
@@ -361,12 +361,20 @@ figcaption strong { color: var(--ink); font-weight: 600; }
 
 /* About */
 .about { background: #D8D2C7; color: var(--night); }  /* primary neutral */
-.about-grid { display: block; }
-.about-grid::after { content: ""; display: block; clear: both; }
-.about .photo { float: left; width: min(40%, 440px); margin: .4rem clamp(1.75rem, 4vw, 3rem) 1.5rem 0; aspect-ratio: 1; background: #B6ADA0; color: var(--night); box-shadow: 0 18px 40px -12px rgba(41, 41, 41, .45), 0 4px 10px rgba(41, 41, 41, .12); }
-.about p { margin-top: 1.1rem; color: var(--night); }
-.about .signoff { font-family: var(--font-elegant); font-style: italic; font-size: 1.9rem; font-weight: 600; color: #8A6A2E; }
-@media (max-width: 700px) { .about .photo { float: none; width: 100%; max-width: 420px; margin: 0 0 2rem; } }
+.values { list-style: none; margin: 2.75rem 0 0; padding: 0; counter-reset: value; max-width: 940px; border-top: 2px solid var(--night); }
+.value {
+  counter-increment: value; display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); column-gap: 1.5rem;
+  padding: 1.9rem 0; border-bottom: 1px solid rgba(41, 41, 41, .18);
+}
+.value::before {
+  content: counter(value, decimal-leading-zero); grid-row: span 2;
+  font-family: var(--font-heading); font-weight: 700; font-size: 3.4rem; line-height: .9; color: #8A6A2E;
+}
+.value h3 { margin: 0; }
+.value p { margin-top: .6rem; max-width: 68ch; }
+.about p { color: var(--night); }
+.about .signoff { margin-top: 1.75rem; font-family: var(--font-elegant); font-style: italic; font-size: 1.9rem; font-weight: 600; color: #8A6A2E; }
+@media (max-width: 560px) { .value { grid-template-columns: 3.6rem minmax(0, 1fr); column-gap: 1rem; } .value::before { font-size: 2.5rem; } }
 
 /* Reviews */
 .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 3rem; }
@@ -387,6 +395,24 @@ blockquote .who { margin-top: 1rem; color: var(--muted); font-weight: 600; }
 .review-title { margin-top: 1rem; }
 .review p:not(.stars) { margin-top: 1rem; font-family: var(--font-body); font-style: normal; font-size: 1.02rem; line-height: 1.75; }
 .review p:nth-of-type(2) { font-family: var(--font-elegant); font-style: italic; font-size: 1.45rem; line-height: 1.45; }
+/* FAQ */
+.faq { border-top: 1px solid var(--line); }
+.faq-list { margin-top: 2.5rem; max-width: 920px; border-top: 2px solid var(--ink); }
+.faq-list details { border-bottom: 1px solid var(--line); }
+.faq-list summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  padding: 1.35rem 0; font-family: var(--font-heading); font-weight: 700; font-size: 1.45rem;
+  text-transform: uppercase; letter-spacing: .03em; line-height: 1.15;
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after {
+  content: "+"; flex: none; font-family: var(--font-body); font-weight: 400; font-size: 1.9rem; line-height: 1;
+  color: var(--accent-dark); transition: transform .25s ease;
+}
+.faq-list details[open] summary::after { transform: rotate(45deg); }
+.faq-list summary:hover { color: var(--accent-dark); }
+.faq-answer { padding: 0 0 1.6rem; max-width: 70ch; color: var(--muted); font-size: 1.02rem; line-height: 1.75; }
+
 /* Contact */
 .contact { background: var(--surface); border-top: 1px solid var(--line); }
 .contact-grid { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; margin-top: 2.5rem; }
@@ -469,7 +495,7 @@ textarea { min-height: 140px; resize: vertical; }
 <div class="topbar">
   <div class="wrap">
     <!-- EDIT: phone + email -->
-    <a href="tel:+15149451880">(514) 945-1880</a>
+    <a href="tel:+15146479992">(514) 647-9992</a>
     <a href="mailto:info@adessoreno.ca">info@adessoreno.ca</a>
   </div>
 </div>
@@ -488,6 +514,7 @@ textarea { min-height: 140px; resize: vertical; }
         <li><a href="#top" aria-current="page"><span data-l="en">Home</span><span data-l="fr">Accueil</span></a></li>
         <li><a href="#about"><span data-l="en">About Us</span><span data-l="fr">À propos</span></a></li>
         <li><a href="#services"><span data-l="en">Services</span><span data-l="fr">Services</span></a></li>
+        <li><a href="#faq"><span data-l="en">FAQ</span><span data-l="fr">FAQ</span></a></li>
         <li><a href="#contact"><span data-l="en">Contact</span><span data-l="fr">Contact</span></a></li>
       </ul>
       <a class="btn" href="#contact"><span data-l="en">Get a Quote</span><span data-l="fr">Soumission</span></a>
@@ -559,8 +586,8 @@ textarea { min-height: 140px; resize: vertical; }
         </div>
       </div>
       <p class="note"><span class="star" aria-hidden="true">*</span>
-        <span data-l="en">Plumbing and electrical contracting is included. We will always pull permits and manage inspections.</span>
-        <span data-l="fr">Les travaux de plomberie et d’électricité sont inclus. Nous obtenons toujours les permis et gérons les inspections.</span>
+        <span data-l="en">Plumbing and electrical work is subcontracted to partners we trust.</span>
+        <span data-l="fr">Les travaux de plomberie et d’électricité sont confiés à des sous-traitants de confiance.</span>
       </p>
     </div>
   </section>
@@ -588,28 +615,28 @@ textarea { min-height: 140px; resize: vertical; }
   </section>
 
   <section id="about" class="about">
-    <div class="wrap about-grid">
-      <div class="photo"><img src="images/owner.jpg" data-en-alt="Sebastian Adeluca, owner of Adesso Renovations, on a job site" data-fr-alt="Sebastian Adeluca, propriétaire d’Adesso Renovations, sur un chantier" alt="Sebastian Adeluca, owner of Adesso Renovations, on a job site" loading="lazy"></div>
-      <div>
-        <h2><span data-l="en">Meet Sebastian</span><span data-l="fr">Voici Sebastian</span></h2>
-        <p>
-          <span data-l="en">I’m Sebastian Adeluca. I’ve spent 15 years in the construction industry, starting out as an electrician before moving into full renovations. Working behind the walls taught me the parts you don’t see matter as much as the ones you do.</span>
-          <span data-l="fr">Je m’appelle Sebastian Adeluca. Je travaille dans l’industrie de la construction depuis 15 ans; j’ai commencé comme électricien avant de me consacrer aux rénovations complètes. Travailler derrière les murs m’a appris que ce qu’on ne voit pas compte autant que ce qu’on voit.</span>
-        </p>
-        <p>
-          <span data-l="en">Over the years, I’ve seen too many homeowners get burned by rushed jobs and poor workmanship. I started Adesso Renovations to do things differently: to bring real expertise, high standards and a serious approach to every project, big or small.</span>
-          <span data-l="fr">Au fil des années, j’ai vu trop de propriétaires se faire échauder par des travaux bâclés et une main-d’œuvre de mauvaise qualité. J’ai fondé Adesso Renovations pour faire les choses autrement : apporter une vraie expertise, des standards élevés et une approche sérieuse à chaque projet, petit ou grand.</span>
-        </p>
-        <p>
-          <span data-l="en">I have a passion for building and for good design, and an eye for the details that make a renovation last. I know what quality work looks like, and I won’t settle for less in your home.</span>
-          <span data-l="fr">J’ai la passion de la construction et du beau design, et l’œil pour les détails qui font qu’une rénovation dure. Je sais reconnaître un travail de qualité, et je ne me contente de rien de moins chez vous.</span>
-        </p>
-        <p>
-          <span data-l="en">The name says it all: adesso means “now” in Italian. When you call, we get moving.</span>
-          <span data-l="fr">Le nom dit tout : adesso signifie « maintenant » en italien. Quand vous appelez, on passe à l’action.</span>
-        </p>
-        <p class="signoff"><span data-l="en">— Sebastian Adeluca, Owner</span><span data-l="fr">— Sebastian Adeluca, propriétaire</span></p>
-      </div>
+    <div class="wrap">
+      <h2><span data-l="en">Our values</span><span data-l="fr">Nos valeurs</span></h2>
+      <!-- EDIT: each <li class="value"> is one value (heading + text), numbered automatically. -->
+      <ol class="values">
+        <li class="value">
+          <h3><span data-l="en">Beyond surface level</span><span data-l="fr">Au-delà de la surface</span></h3>
+          <p><span data-l="en">Adesso Renovations was founded by Sebastian Adeluca, who has spent 15 years in the construction industry, starting out as an electrician before moving into full renovations. That time working behind the walls taught us that the parts you don’t see matter as much as the ones you do.</span><span data-l="fr">Adesso Renovations a été fondée par Sebastian Adeluca, qui cumule 15 ans d’expérience dans l’industrie de la construction; il a commencé comme électricien avant de se consacrer aux rénovations complètes. Ces années à travailler derrière les murs nous ont appris que ce qu’on ne voit pas compte autant que ce qu’on voit.</span></p>
+        </li>
+        <li class="value">
+          <h3><span data-l="en">High standards for every project</span><span data-l="fr">Des standards élevés pour chaque projet</span></h3>
+          <p><span data-l="en">Over the years, we’ve seen too many homeowners get burned by rushed jobs and poor workmanship. Adesso was started to do things differently: to bring real expertise, high standards and a serious approach to every project, big or small.</span><span data-l="fr">Au fil des années, nous avons vu trop de propriétaires se faire échauder par des travaux bâclés et une main-d’œuvre de mauvaise qualité. Adesso est née pour faire les choses autrement : apporter une vraie expertise, des standards élevés et une approche sérieuse à chaque projet, petit ou grand.</span></p>
+        </li>
+        <li class="value">
+          <h3><span data-l="en">An eye for detail</span><span data-l="fr">L’œil pour les détails</span></h3>
+          <p><span data-l="en">Our team shares a passion for building and for good design, and an eye for the details that make a renovation last. We know what quality work looks like, and we won’t settle for less in your home.</span><span data-l="fr">Notre équipe partage la passion de la construction et du beau design, et l’œil pour les détails qui font qu’une rénovation dure. Nous savons reconnaître un travail de qualité, et nous ne nous contentons de rien de moins chez vous.</span></p>
+        </li>
+        <li class="value">
+          <h3><span data-l="en">Adesso means now</span><span data-l="fr">Adesso veut dire maintenant</span></h3>
+          <p><span data-l="en">The name says it all: adesso means “now” in Italian. When you call, we get moving.</span><span data-l="fr">Le nom dit tout : adesso signifie « maintenant » en italien. Quand vous appelez, on passe à l’action.</span></p>
+        </li>
+      </ol>
+      <p class="signoff"><span data-l="en">— The Adesso Renovations team</span><span data-l="fr">— L’équipe d’Adesso Renovations</span></p>
     </div>
   </section>
 
@@ -636,6 +663,35 @@ textarea { min-height: 140px; resize: vertical; }
     </div>
   </section>
 
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <h2><span data-l="en">Frequently asked questions</span><span data-l="fr">Questions fréquentes</span></h2>
+      <!-- EDIT: questions and answers. Copy a <details>…</details> block to add one. -->
+      <div class="faq-list">
+        <details>
+          <summary><span data-l="en">What’s the process like?</span><span data-l="fr">Comment se déroule un projet?</span></summary>
+          <p class="faq-answer"><span data-l="en">It starts with a free walkthrough: Our team visits your home, listens to what you have in mind, and takes measurements. You then receive a clear written estimate with the scope of work and a timeline. Once you approve it, we schedule the work and get started. When the job is done, we do a final walkthrough together to make sure everything is right.</span><span data-l="fr">Tout commence par une visite gratuite : notre équipe se rend chez vous, écoute ce que vous avez en tête et prend les mesures. Vous recevez ensuite une soumission écrite claire, avec l’étendue des travaux et un échéancier. Une fois la soumission approuvée, nous planifions les travaux et commençons. À la fin, nous faisons une inspection finale ensemble pour nous assurer que tout est parfait.</span></p>
+        </details>
+        <details>
+          <summary><span data-l="en">How do you coordinate payment and pricing?</span><span data-l="fr">Comment fonctionnent les prix et les paiements?</span></summary>
+          <p class="faq-answer"><span data-l="en">Every project gets a detailed written quote, so you know the price before any work begins. You can review and approve your quote online through our client portal, and invoices are sent the same way. The payment schedule depends on the size of the project and is laid out clearly in your quote.</span><span data-l="fr">Chaque projet fait l’objet d’une soumission écrite détaillée, pour que vous connaissiez le prix avant le début des travaux. Vous pouvez consulter et approuver votre soumission en ligne dans notre portail client, et les factures sont envoyées de la même façon. Le calendrier des paiements dépend de l’ampleur du projet et est clairement indiqué dans votre soumission.</span></p>
+        </details>
+        <details>
+          <summary><span data-l="en">What sort of projects do you handle?</span><span data-l="fr">Quels types de projets faites-vous?</span></summary>
+          <p class="faq-answer"><span data-l="en">Kitchen and bathroom remodels, finished basements, renovations and additions, as well as repairs, small jobs, and design and storage installations. Plumbing and electrical work is subcontracted to partners we trust. Not sure if your project is a fit? Give us a call, we’d love to see how we can help.</span><span data-l="fr">Rénovations de cuisines et de salles de bain, aménagement de sous-sols, rénovations et agrandissements, ainsi que réparations, petits travaux et installations de design et de rangement. Les travaux de plomberie et d’électricité sont confiés à des sous-traitants de confiance. Vous ne savez pas si votre projet nous convient? Appelez-nous, nous serions ravis de voir comment nous pouvons vous aider.</span></p>
+        </details>
+        <details>
+          <summary><span data-l="en">How will I be informed of updates about progress?</span><span data-l="fr">Comment serai-je tenu au courant de l’avancement?</span></summary>
+          <p class="faq-answer"><span data-l="en">You’ll have a direct line to our team for your whole project. We keep you updated by phone, text, or email as the work moves along, and let you know right away if anything changes with the schedule or scope.</span><span data-l="fr">Vous avez un contact direct avec notre équipe tout au long de votre projet. Nous vous tenons informé par téléphone, texto ou courriel à mesure que les travaux avancent, et nous vous avisons immédiatement de tout changement à l’échéancier ou aux travaux.</span></p>
+        </details>
+        <details>
+          <summary><span data-l="en">Do you work with designers?</span><span data-l="fr">Travaillez-vous avec des designers?</span></summary>
+          <p class="faq-answer"><span data-l="en">Yes. If you’re working with an interior designer or architect, we’re happy to collaborate with them and bring their plans to life. If you don’t have one, we can help guide your layout and finish choices along the way.</span><span data-l="fr">Oui. Si vous travaillez avec un designer d’intérieur ou un architecte, nous collaborons volontiers avec eux pour concrétiser leurs plans. Si vous n’en avez pas, nous pouvons vous guider dans vos choix d’aménagement et de finitions.</span></p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <section id="contact" class="contact">
     <div class="wrap">
       <h2><span data-l="en">Get a free estimate</span><span data-l="fr">Demandez une soumission gratuite</span></h2>
@@ -648,7 +704,7 @@ textarea { min-height: 140px; resize: vertical; }
         </div>
         <!-- EDIT: contact details -->
         <dl class="contact-details">
-          <div><dt><span data-l="en">Call or text</span><span data-l="fr">Appel ou texto</span></dt><dd><a href="tel:+15149451880">(514) 945-1880</a></dd></div>
+          <div><dt><span data-l="en">Call or text</span><span data-l="fr">Appel ou texto</span></dt><dd><a href="tel:+15146479992">(514) 647-9992</a></dd></div>
           <div><dt><span data-l="en">Email</span><span data-l="fr">Courriel</span></dt><dd><a href="mailto:info@adessoreno.ca">info@adessoreno.ca</a></dd></div>
           <div><dt><span data-l="en">Service area</span><span data-l="fr">Territoire desservi</span></dt><dd class="area"><span data-l="en">Vaudreuil, Saint-Lazare, Hudson, West Island, Greater Montreal Area</span><span data-l="fr">Vaudreuil, Saint-Lazare, Hudson, l’Ouest-de-l’Île et la grande région de Montréal</span></dd></div>
         </dl>
@@ -736,8 +792,9 @@ textarea { min-height: 140px; resize: vertical; }
     [".services-list .service", .08],
     ["#services .note", 0],
     [".gallery figure", .12],
-    [".about .photo, .about p", .08],
+    [".values .value, .about .signoff", .1],
     [".reviews-list .review", .14],
+    [".faq-list details", .07],
     [".contact-grid > *", .14]
   ];
   var revealEls = [];
